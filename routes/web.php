@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('home','HomeController@index');
+
+Route::get('blog/{slug}','HomeController@detail');
+
+Route::get('category/{slug}','HomeController@category');
+
+Route::get('/','HomeController@ca');
+
+Route::get('post','HomeController@po');
