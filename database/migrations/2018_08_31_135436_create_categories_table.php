@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('slug')->unique();
             $table->mediumText('description')->nullable();
-            
+
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+
     }
 }

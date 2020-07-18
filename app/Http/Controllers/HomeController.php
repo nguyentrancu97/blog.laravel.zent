@@ -13,8 +13,9 @@ class HomeController extends Controller
     // 	return view('index',['posts'=>$posts]);
     // }
     public function index(){
-    	$posts = Post::paginate(5);
-    	return view('index',compact('posts'));
+        $posts = Post::paginate(5);
+        $lastPosts = Post::orderBy('id', 'desc')->take(5);
+    	return view('index',compact('posts', 'lastPosts'));
     }
     public function detail($slug){
     	$post = Post::where('slug',$slug)->firstOrFail();
@@ -26,14 +27,5 @@ class HomeController extends Controller
     	return view('categories.category',['posts'=>$posts]);
     }
 
-    // public function ca(){
-    // 	$category = Category::firstOrFail();
-    // 	dd($category->posts);
 
-    // }
-
-    // public function po(){
-    // 	$post = Post::firstOrFail();
-    // 	dd($post->category);
-    // }
 }
