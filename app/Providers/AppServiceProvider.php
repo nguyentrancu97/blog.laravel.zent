@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 use \App\Category;
 use \App\Post;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,9 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // view()->share('categories',Category::get());
 
-        // view()->share('lastPosts',Post::select('posts.*')->orderBy('id','desc')->limit(4)->get());
+        View::share('categories', Category::get());
+
+        View::share('lastPosts', Post::select('posts.*')->orderBy('id','desc')->limit(4)->get());
+
     }
 
     /**

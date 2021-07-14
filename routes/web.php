@@ -13,12 +13,15 @@
 
 
 
-// Route::get('home','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
 
-Route::get('blog/{slug}','HomeController@detail');
+Route::get('blog', 'HomeController@blog')->name('blog');
 
-Route::get('category/{slug}','HomeController@category');
+Route::get('blog/{slug}','HomeController@detail')->name('blog-detail');
 
-Route::get('/','HomeController@index');
+Route::get('category/{slug}','HomeController@category')->name('category');
 
-Route::get('post','HomeController@po');
+Route::get('about-us', 'HomeController@aboutUs')->name('about-us');
+
+Route::get('contact', 'HomeController@contact')->name('contact');
+
