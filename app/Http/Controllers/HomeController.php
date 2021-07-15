@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\TestJob;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
@@ -17,6 +18,7 @@ class HomeController extends Controller
     public function detail($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+        TestJob::dispatch()->delay(3);
         return view('posts.detail', ['post' => $post]);
     }
 
